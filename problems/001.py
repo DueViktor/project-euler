@@ -1,11 +1,4 @@
-import time
-start = time.time()
+""" Find the sum of all the multiples of 3 or 5 below 1000. """
 
-sum = 0
-
-for i in range(1, 1000):
-    if i % 3 == 0 or i % 5 == 0:
-        sum += i
-
-print("The sum of all multiples of 3 or 5 below 1000 is {}".format(sum))
-print("Time: {}".format(time.time() - start))
+multiples = [i for i in range(1, 1000) if not i % 3 or not i % 5]
+print(sum(multiples))
