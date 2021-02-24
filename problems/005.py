@@ -1,56 +1,39 @@
-import time
+""" What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20? """
 
-from lib.primes import read_primes
-from lib.primes import is_prime
+from euler.primes import factors
 from collections import defaultdict
 
-start = time.time()
-
-def prime_factors(n):
-    """
-    Found online
-    """
-    i = 2
-    factors = list()
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            factors.append(i)
-    if n > 1:
-        factors.append(n)
-    return factors
 
 prime_factors_list = list()
 lens = list()
+divisibles = [2, 3, 5, 7, 11, 13, 17, 19]
 
-for i in range(2,21):
-    r = prime_factors(i)
-    prime_factors_list.append(r)
-    lens.append(len(r))
-print(prime_factors_list)
-print(lens)
+for divis in divisibles:
+    prime_factors = factors(divis)
+    print(prime_factors)
+#     prime_factors_list.append(prime_factors)
+#     lens.append(len(r))
+# print(prime_factors_list)
+# print(lens)
 
-d = defaultdict(list)
-index_ = 0
-for i in range(max(lens)):
-    for l in prime_factors_list:
-        try:
-            d[index_].append(l[index_])
-        except:
-            pass
-    index_ += 1    
+# d = defaultdict(list)
+# index_ = 0
+# for i in range(max(lens)):
+#     for l in prime_factors_list:
+#         try:
+#             d[index_].append(l[index_])
+#         except BaseException:
+#             pass
+#     index_ += 1
 
-result = 1
-print(d)
-for key,val in d.items():
-    print(type(val))
-    print(val)
-    result *= max(val)
+# result = 1
+# print(d)
+# for key, val in d.items():
+#     print(type(val))
+#     print(val)
+#     result *= max(val)
 
-print("Result is: {}".format(result))
-print("Time: {:2f}".format(time.time()-start))
+# print("Result is: {}".format(result))
 
 """
 http://mathforum.org/library/drmath/view/62527.html
@@ -70,7 +53,7 @@ Take all numbers that it should be divisable with a split into prime factors:
 4 =>  2^2
 5 =>               5^1
 6 =>  2^1   3^1
-7 =>        
+7 =>
      -----------------
       2^2   3^1    5^1        <--- highest exponents
 
