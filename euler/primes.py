@@ -1,7 +1,7 @@
 from typing import Dict, List
 
 
-def highest_factor(n: int) -> int:
+def highest_factor(n: float) -> int:
     """ credit to : https://stackoverflow.com/a/17311362 """
     i = 2
     while i * i < n:
