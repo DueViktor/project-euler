@@ -2,3 +2,4 @@
 *.egg-info
 .lock
 __pycache__
+*_cache
