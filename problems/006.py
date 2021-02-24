@@ -1,17 +1,17 @@
-import time
-start = time.time()
+""" Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum. """
 
-def sum_of_squares(l):
+
+from typing import List
+
+
+def sum_of_squares(l: range) -> float:
+    # square each item in l
     s = 0
     for i in l:
         s = s + i**2
     return s
 
-def square_of_sum(l):
-    s = sum(l)**2
-    return s
 
-n = range(1,101)
-
-print("The difference between the sum of squares of the first 100 natural numbers and the square of the sum is {}".format(square_of_sum(n)-sum_of_squares(n)))
-print("Time: {}".format(time.time()-start))
+N: range = range(1, 101)
+res = (sum(N)**2) - sum_of_squares(N)
+print(res)

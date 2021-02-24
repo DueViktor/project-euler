@@ -1,16 +1,9 @@
-from lib.primes import is_prime as ip
-import time
+""" What is the 10 001st prime number? """
+from euler.primes import gen_primes
 
-start = time.time()
+limit: int = 10001
 
-i = 3
-limit = 10001
-prime_number = 1
-
-while prime_number != limit:
-    if ip(i):
-        prime_number += 1
-    i += 2
-
-print("Prime number {} is {}.".format(limit,i-2))
-print("Time: {}".format(time.time()-start))
+for i, prime in enumerate(gen_primes()):
+    if i > limit - 1:
+        print(prime)
+        break
